@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Enabled Smart Fire Fighting Robot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  AI-Enabled Smart Fire Fighting Robot Using IoT
+</header>
+
+<div class="container">
+
+  <!-- LIVE VIDEO -->
+  <div class="video-box">
+    <!-- Replace ESP32-CAM-IP -->
+    <img src="http://ESP32-CAM-IP:81/stream" alt="Live Video">
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+
+    <!-- CAR CONTROL -->
+    <div class="panel">
+      <h3>Car Control</h3>
+      <button onclick="sendCmd('forward')">Forward</button><br>
+      <button onclick="sendCmd('left')">Left</button>
+      <button onclick="sendCmd('stop')">Stop</button>
+      <button onclick="sendCmd('right')">Right</button><br>
+      <button onclick="sendCmd('backward')">Backward</button>
+    </div>
+
+    <!-- WATER PUMP -->
+    <div class="panel">
+      <h3>Water Pump</h3>
+      <button class="pump-btn" onclick="sendCmd('pump_on')">Pump ON</button><br>
+      <button onclick="sendCmd('pump_off')">Pump OFF</button>
+    </div>
+
+    <!-- PAN TILT -->
+    <div class="panel">
+      <h3>Pan-Tilt Control</h3>
+      <button onclick="sendCmd('pan_left')">Pan Left</button>
+      <button onclick="sendCmd('pan_right')">Pan Right</button><br>
+      <button onclick="sendCmd('tilt_up')">Tilt Up</button>
+      <button onclick="sendCmd('tilt_down')">Tilt Down</button>
+    </div>
+
+  </div>
+
+  <!-- STATUS -->
+  <div class="status">
+    <p><b>Fire Detected :</b> <span id="fire">No</span></p>
+    <p><b>AI Status :</b> <span id="ai">Idle</span></p>
+    <p><b>Alert :</b> <span id="alert">OFF</span></p>
+  </div>
+
+</div>
+
+<footer>
+  IoT Project Demonstration
+</footer>
+
+<!-- External JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
