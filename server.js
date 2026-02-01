@@ -4,7 +4,7 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static frontend
+// Serve static frontend files
 app.use(express.static(path.join(__dirname, "public")));
 
 // Home route
@@ -17,6 +17,7 @@ app.get("/health", (req, res) => {
   res.json({ status: "OK" });
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(Server running on port ${PORT});
+  console.log(`Server running on port ${PORT}`);
 });
