@@ -21,6 +21,7 @@ let commandState = {
   pan: "center",      // left, right, center
   tilt: "center",     // up, down, center
   mode: "manual",      // manual / auto (future)
+  time: Date.now()
 };
 
 // Status sent FROM ESP32 TO website
@@ -37,7 +38,7 @@ let statusState = {
 
 // Website -> Backend (set command)
 app.post("/api/command", (req, res) => {
-  commandState = { ...commandState, ...req.body};
+  commandState = { ...commandState, ...req.body, time: Date.now()};
   console.log("COMMAND UPDATE:", commandState);
   res.json({ success: true });
 });
@@ -74,6 +75,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ AIoT Backend running on port ${PORT}`);
 });
+
 
 
 
