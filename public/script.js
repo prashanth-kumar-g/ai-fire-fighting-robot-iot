@@ -54,65 +54,19 @@ function pumpOff() {
 }
 
 // ---------- Pan Tilt Control ----------
-const panLeft = document.getElementById("panLeft");
-panLeft.addEventListener("mousedown", () => {
+document.getElementById("panLeft").addEventListener("click", () => {
   sendCommand({ pan: "left" });
 });
-panLeft.addEventListener("mouseup", () => {
-  sendCommand({ pan: "none" });
-});
-
-panLeft.addEventListener("touchstart", () => {
-  sendCommand({ pan: "left" });
-});
-panLeft.addEventListener("touchend", () => {
-  sendCommand({ pan: "none" });
-});
-
-const panRight = document.getElementById("panRight");
-panRight.addEventListener("mousedown", () => {
+document.getElementById("panRight").addEventListener("click", () => {
   sendCommand({ pan: "right" });
 });
-panRight.addEventListener("mouseup", () => {
-  sendCommand({ pan: "none" });
-});
 
-panRight.addEventListener("touchstart", () => {
-  sendCommand({ pan: "right" });
-});
-panRight.addEventListener("touchend", () => {
-  sendCommand({ pan: "none" });
-});
-
-const tiltUp = document.getElementById("tiltUp");
-tiltUp.addEventListener("mousedown", () => {
+document.getElementById("tiltUp").addEventListener("click", () => {
   sendCommand({ tilt: "up" });
 });
-tiltUp.addEventListener("mouseup", () => {
-  sendCommand({ tilt: "none" });
-});
 
-tiltUp.addEventListener("touchstart", () => {
-  sendCommand({ tilt: "up" });
-});
-tiltUp.addEventListener("touchend", () => {
-  sendCommand({ tilt: "none" });
-});
-
-const tiltDown = document.getElementById("tiltDown");
-
-tiltDown.addEventListener("mousedown", () => {
+document.getElementById("tiltDown").addEventListener("click", () => {
   sendCommand({ tilt: "down" });
-});
-tiltDown.addEventListener("mouseup", () => {
-  sendCommand({ tilt: "none" });
-});
-
-tiltDown.addEventListener("touchstart", () => {
-  sendCommand({ tilt: "down" });
-});
-tiltDown.addEventListener("touchend", () => {
-  sendCommand({ tilt: "none" });
 });
 
 // ---------- Poll Status from Backend ----------
@@ -139,4 +93,5 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000);
+
 
