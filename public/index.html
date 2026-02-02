@@ -29,36 +29,36 @@
     <!-- CAR CONTROL -->
     <div class="panel">
       <h3>Car Control</h3>
-      <button onclick="sendCmd('forward')">Forward</button><br>
-      <button onclick="sendCmd('left')">Left</button>
-      <button onclick="sendCmd('stop')">Stop</button>
-      <button onclick="sendCmd('right')">Right</button><br>
-      <button onclick="sendCmd('backward')">Backward</button>
+      <button onclick="moveForward()">Forward</button><br>
+      <button onclick="turnleft()">Left</button>
+      <button onclick="stopCar()">Stop</button>
+      <button onclick="turnRight()">Right</button><br>
+      <button onclick="moveForward()">Backward</button>
     </div>
 
     <!-- WATER PUMP -->
     <div class="panel">
       <h3>Water Pump</h3>
-      <button class="pump-btn" onclick="sendCmd('pump_on')">Pump ON</button><br>
-      <button onclick="sendCmd('pump_off')">Pump OFF</button>
+      <button class="pump-btn" onclick="pumpOn()">Pump ON</button><br>
+      <button onclick="pumpOff()">Pump OFF</button>
     </div>
 
     <!-- PAN TILT -->
     <div class="panel">
       <h3>Pan-Tilt Control</h3>
-      <button onclick="sendCmd('pan_left')">Pan Left</button>
-      <button onclick="sendCmd('pan_right')">Pan Right</button><br>
-      <button onclick="sendCmd('tilt_up')">Tilt Up</button>
-      <button onclick="sendCmd('tilt_down')">Tilt Down</button>
+      <button onclick="panLeft()">Pan Left</button>
+      <button onclick="panRight()">Pan Right</button><br>
+      <button onclick="tiltUp()">Tilt Up</button>
+      <button onclick="tiltDown()">Tilt Down</button>
     </div>
 
   </div>
 
   <!-- STATUS -->
   <div class="status">
-    <p><b>Fire Detected :</b> <span id="fire">No</span></p>
-    <p><b>AI Status :</b> <span id="ai">Idle</span></p>
-    <p><b>Alert :</b> <span id="alert">OFF</span></p>
+    <p><b>Fire Detected :</b> <span id="fireStatus">No</span></p>
+    <p><b>AI Status :</b> <span id="aiStatus">Idle</span></p>
+    <p><b>Alert :</b> <span id="alertStatus">OFF</span></p>
   </div>
 
 </div>
@@ -72,3 +72,4 @@
 
 </body>
 </html>
+
