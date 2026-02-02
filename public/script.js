@@ -54,20 +54,23 @@ function pumpOff() {
 }
 
 // ---------- Pan Tilt Control ----------
-document.getElementById("panLeft").addEventListener("click", () => {
+/* -------- PAN -------- */
+function panLeft() {
   sendCommand({ pan: "left" });
-});
-document.getElementById("panRight").addEventListener("click", () => {
+}
+
+function panRight() {
   sendCommand({ pan: "right" });
-});
+}
 
-document.getElementById("tiltUp").addEventListener("click", () => {
+/* -------- TILT -------- */
+function tiltUp() {
   sendCommand({ tilt: "up" });
-});
+}
 
-document.getElementById("tiltDown").addEventListener("click", () => {
+function tiltDown() {
   sendCommand({ tilt: "down" });
-});
+}
 
 // ---------- Poll Status from Backend ----------
 function updateStatus() {
@@ -93,5 +96,6 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000);
+
 
 
