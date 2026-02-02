@@ -20,7 +20,8 @@ let commandState = {
   pump: "off",        // on, off
   pan: "center",      // left, right, center
   tilt: "center",     // up, down, center
-  mode: "manual"      // manual / auto (future)
+  mode: "manual",      // manual / auto (future)
+  time: Date.now()
 };
 
 // Status sent FROM ESP32 TO website
@@ -74,4 +75,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ AIoT Backend running on port ${PORT}`);
 });
+
 
