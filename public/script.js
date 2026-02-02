@@ -54,29 +54,66 @@ function pumpOff() {
 }
 
 // ---------- Pan Tilt Control ----------
-function panLeft() {
+const panLeft = document.getElementById("panLeft");
+panLeft.addEventListener("mousedown", () => {
   sendCommand({ pan: "left" });
-}
+});
+panLeft.addEventListener("mouseup", () => {
+  sendCommand({ pan: "none" });
+});
 
-function panRight() {
+panLeft.addEventListener("touchstart", () => {
+  sendCommand({ pan: "left" });
+});
+panLeft.addEventListener("touchend", () => {
+  sendCommand({ pan: "none" });
+});
+
+const panRight = document.getElementById("panRight");
+panRight.addEventListener("mousedown", () => {
   sendCommand({ pan: "right" });
-}
+});
+panRight.addEventListener("mouseup", () => {
+  sendCommand({ pan: "none" });
+});
 
-function panCenter() {
-  sendCommand({ pan: "center" });
-}
+panRight.addEventListener("touchstart", () => {
+  sendCommand({ pan: "right" });
+});
+panRight.addEventListener("touchend", () => {
+  sendCommand({ pan: "none" });
+});
 
-function tiltUp() {
+const tiltUp = document.getElementById("tiltUp");
+tiltUp.addEventListener("mousedown", () => {
   sendCommand({ tilt: "up" });
-}
+});
+tiltUp.addEventListener("mouseup", () => {
+  sendCommand({ tilt: "none" });
+});
 
-function tiltDown() {
+tiltUp.addEventListener("touchstart", () => {
+  sendCommand({ tilt: "up" });
+});
+tiltUp.addEventListener("touchend", () => {
+  sendCommand({ tilt: "none" });
+});
+
+const tiltDown = document.getElementById("tiltDown");
+
+tiltDown.addEventListener("mousedown", () => {
   sendCommand({ tilt: "down" });
-}
+});
+tiltDown.addEventListener("mouseup", () => {
+  sendCommand({ tilt: "none" });
+});
 
-function tiltCenter() {
-  sendCommand({ tilt: "center" });
-}
+tiltDown.addEventListener("touchstart", () => {
+  sendCommand({ tilt: "down" });
+});
+tiltDown.addEventListener("touchend", () => {
+  sendCommand({ tilt: "none" });
+});
 
 // ---------- Poll Status from Backend ----------
 function updateStatus() {
@@ -102,3 +139,4 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000);
+
