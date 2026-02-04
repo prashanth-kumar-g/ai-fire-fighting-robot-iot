@@ -6,20 +6,20 @@ const API_BASE = "";
 // empty means "same origin" (Render URL automatically)
 
 // ---------- Send Command to Backend ----------
-function sendCommand(command) {
-  fetch(`${API_BASE}/api/command`, {
+function sendCommand(data) {
+  fetch("/api/command", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(command)
+    body: JSON.stringify(data)
   })
-  .then(res => res.json())
-  .then(data => {
-    console.log("Command sent:", command);
+  .then(() => {
+    // optional log (can remove later)
+    console.log("Sent:", data);
   })
   .catch(err => {
-    console.error("Command error:", err);
+    console.error("Send failed:", err);
   });
 }
 
@@ -96,6 +96,7 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000);
+
 
 
 
