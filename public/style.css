@@ -82,14 +82,14 @@ button:hover {
   background: #a61c1c;
 }
 
-/* STATUS */
+/* STATUS 
 .status {
   background: white;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   font-size: 16px;
-}
+} */
 
 /* CAMERA CONNECT BUTTON */
 .camera-control {
@@ -126,4 +126,5 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
