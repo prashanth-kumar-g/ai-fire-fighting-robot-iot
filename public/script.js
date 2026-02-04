@@ -72,6 +72,14 @@ function tiltDown() {
   sendCommand({ tilt: "down" });
 }
 
+function connectCamera() {
+  const camIP = prompt("Enter ESP32-CAM IP address (example: 192.168.0.110)");
+  if (!camIP) return;
+
+  const streamURL = http://${camIP}:81/stream;
+  document.getElementById("camStream").src = streamURL;
+}
+
 // ---------- Poll Status from Backend ----------
 function updateStatus() {
   fetch(`${API_BASE}/api/status`)
@@ -96,6 +104,7 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000);
+
 
 
 
