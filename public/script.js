@@ -24,13 +24,11 @@ function sendCommand(data) {
 }
 
 function connectCamera() {
-  console.log("Connect Camera clicked");
+  const ip = prompt("Enter ESP32-CAM IP (example: 192.168.0.110)");
+  if (!ip) return;
 
-  const camIP = prompt("Enter ESP32-CAM IP (example: 192.168.0.110)");
-  if (!camIP) return;
-
-  const streamURL = `http://${camIP}:81/stream`;
-  document.getElementById("camStream").src = streamURL;
+  const camUrl = `http://${ip}:81/stream`;
+  document.getElementById("cameraFeed").src = camUrl;
 }
 
 // ---------- Button Actions (CAR) ----------
@@ -106,4 +104,5 @@ function updateStatus() {
 
 // Poll status every 1 second
 setInterval(updateStatus, 1000)
+
 
