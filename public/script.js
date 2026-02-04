@@ -81,28 +81,26 @@ function tiltDown() {
 }
 
 // ---------- Poll Status from Backend ----------
-function updateStatus() {
-  fetch(`${API_BASE}/api/status`)
-    .then(res => res.json())
-    .then(status => {
-      console.log("Status:", status);
+// function updateStatus() {
+//   fetch(`${API_BASE}/api/status`)
+//     .then(res => res.json())
+//     .then(status => {
+//       console.log("Status:", status);
 
-      // Update UI text (IDs must exist in HTML)
-      document.getElementById("fireStatus").innerText =
-        status.fireDetected ? "YES" : "NO";
+//       // Update UI text (IDs must exist in HTML)
+//       document.getElementById("fireStatus").innerText =
+//         status.fireDetected ? "YES" : "NO";
 
-      document.getElementById("aiStatus").innerText =
-        status.aiStatus.toUpperCase();
+//       document.getElementById("aiStatus").innerText =
+//         status.aiStatus.toUpperCase();
 
-      document.getElementById("alertStatus").innerText =
-        status.pumpStatus === "on" ? "ON" : "OFF";
-    })
-    .catch(err => {
-      console.error("Status error:", err);
-    });
-}
+//       document.getElementById("alertStatus").innerText =
+//         status.pumpStatus === "on" ? "ON" : "OFF";
+//     })
+//     .catch(err => {
+//       console.error("Status error:", err);
+//     });
+// }
 
 // Poll status every 1 second
-setInterval(updateStatus, 1000)
-
-
+// setInterval(updateStatus, 1000)
