@@ -23,6 +23,16 @@ function sendCommand(data) {
   });
 }
 
+function connectCamera() {
+  console.log("Connect Camera clicked");
+
+  const camIP = prompt("Enter ESP32-CAM IP (example: 192.168.0.110)");
+  if (!camIP) return;
+
+  const streamURL = `http://${camIP}:81/stream`;
+  document.getElementById("camStream").src = streamURL;
+}
+
 // ---------- Button Actions (CAR) ----------
 function moveForward() {
   sendCommand({ move: "forward" });
@@ -95,15 +105,5 @@ function updateStatus() {
 }
 
 // Poll status every 1 second
-setInterval(updateStatus, 1000);
-
-function connectCamera() {
-  console.log("Connect Camera clicked");
-
-  const camIP = prompt("Enter ESP32-CAM IP (example: 192.168.0.110)");
-  if (!camIP) return;
-
-  const streamURL = `http://${camIP}:81/stream`;
-  document.getElementById("camStream").src = streamURL;
-}
+setInterval(updateStatus, 1000)
 
