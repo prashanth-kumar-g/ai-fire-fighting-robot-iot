@@ -18,11 +18,12 @@
 <div class="container">
 
   <!-- LIVE VIDEO -->
+<div class="video-section">
   <div class="video-box">
-    <!-- Replace ESP32-CAM-IP -->
-    <img id="camStream" src="" alt="Live Video">
-    <button onclick="connectCamera()">Connect Camera</button>
+    <img id="cameraFeed" alt="Camera Feed" />
   </div>
+  <button class="camera-btn" onclick="connectCamera()">Connect Camera</button>
+</div>
 
   <!-- CONTROLS -->
   <div class="controls">
@@ -73,6 +74,7 @@
 
 </body>
 </html>
+
 
 
 
