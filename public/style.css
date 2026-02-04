@@ -112,13 +112,13 @@ button:hover {
 #connectCameraBtn:hover {
   background: #163d6b;
 }
-
+/*
 footer {
   margin-top: 25px;
   text-align: center;
   font-size: 14px;
   color: #555;
-}
+}*/
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -126,5 +126,6 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
