@@ -103,6 +103,7 @@ function connectCamera() {
   const camIP = prompt("Enter ESP32-CAM IP (example: 192.168.0.110)");
   if (!camIP) return;
 
-  const streamURL = http://${camIP}:81/stream;
+  const streamURL = `http://${camIP}:81/stream`;
   document.getElementById("camStream").src = streamURL;
 }
+
