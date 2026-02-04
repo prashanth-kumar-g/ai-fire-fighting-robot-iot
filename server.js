@@ -37,14 +37,35 @@ let statusState = {
 
 // Website -> Backend (set command)
 app.post("/api/command", (req, res) => {
-  commandState = { ...commandState, ...req.body};
-  console.log("COMMAND UPDATE:", commandState);
-  res.json({ success: true });
+  const { move, pan, tilt, pump } = req.body;
+
+  if (move !== undefined) commandState.move = move;
+  if (pan !== undefined)  commandState.pan  = pan;
+  if (tilt !== undefined) commandState.tilt = tilt;
+  if (pump !== undefined) commandState.pump = pump;
+
+  res.json({ status: "OK" });
 });
 
 // ESP32 -> Backend (get command)
 app.get("/api/command", (req, res) => {
-  res.json(commandState);
+
+  // 1️⃣ Copy current command
+  const cmd = {
+    move: commandState.move,
+    pan: commandState.pan,
+    tilt: commandState.tilt,
+    pump: commandState.pump
+  };
+
+  // 2️⃣ RESET one-shot commands (VERY IMPORTANT)
+  commandState.pan  = "none";
+  commandState.tilt = "none";
+  commandState.move = "stop";
+  // pump is NOT reset (toggle based)
+
+  // 3️⃣ Send to ESP32
+  res.json(cmd);
 });
 
 // ---------- API: STATUS ----------
@@ -74,6 +95,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ AIoT Backend running on port ${PORT}`);
 });
+
 
 
 
