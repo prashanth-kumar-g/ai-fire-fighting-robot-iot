@@ -16,11 +16,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Commands sent FROM website TO ESP32
 let commandState = {
+  mode: "manual",     // manual / automatic
   move: "stop",       // forward, backward, left, right, stop
   pump: "off",        // on, off
-  pan: "center",      // left, right, center
-  tilt: "center",     // up, down, center
-  mode: "manual"      // manual / auto (future)
+  pan: "none",        // left, right, none
+  tilt: "none"        // up, down, none
 };
 
 // Status sent FROM ESP32 TO website
@@ -37,34 +37,35 @@ let statusState = {
 
 // Website -> Backend (set command)
 app.post("/api/command", (req, res) => {
-  const { move, pan, tilt, pump } = req.body;
+  const { mode, move, pan, tilt, pump } = req.body;
 
+  if (mode !== undefined) commandState.mode = mode;
   if (move !== undefined) commandState.move = move;
   if (pan !== undefined)  commandState.pan  = pan;
   if (tilt !== undefined) commandState.tilt = tilt;
   if (pump !== undefined) commandState.pump = pump;
 
-  res.json({ status: "OK" });
+  res.json({ status: "OK", commandState });
 });
 
 // ESP32 -> Backend (get command)
 app.get("/api/command", (req, res) => {
 
-  // 1️⃣ Copy current command
   const cmd = {
+    mode: commandState.mode,
     move: commandState.move,
     pan: commandState.pan,
     tilt: commandState.tilt,
     pump: commandState.pump
   };
 
-  // 2️⃣ RESET one-shot commands (VERY IMPORTANT)
+  // One-shot resets
   commandState.pan  = "none";
   commandState.tilt = "none";
   commandState.move = "stop";
-  // pump is NOT reset (toggle based)
+  // DO NOT reset mode(toggle-based)
+  // DO NOT reset pump(toggle-based)
 
-  // 3️⃣ Send to ESP32
   res.json(cmd);
 });
 
@@ -95,11 +96,3 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ AIoT Backend running on port ${PORT}`);
 });
-
-
-
-
-
-
-
-
