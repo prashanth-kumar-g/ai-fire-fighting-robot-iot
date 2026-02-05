@@ -31,6 +31,15 @@ function connectCamera() {
   document.getElementById("cameraFeed").src = camUrl;
 }
 
+let currentMode = "manual";
+function setMode(mode) {
+  currentMode = mode;
+  console.log("Mode selected:", mode);
+
+  // OPTIONAL (for later backend integration)
+  // sendCommand({ mode: mode });
+}
+
 // ---------- Button Actions (CAR) ----------
 function moveForward() {
   sendCommand({ move: "forward" });
@@ -104,3 +113,4 @@ function tiltDown() {
 
 // Poll status every 1 second
 // setInterval(updateStatus, 1000)
+
