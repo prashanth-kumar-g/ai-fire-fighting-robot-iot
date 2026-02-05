@@ -112,6 +112,41 @@ button:hover {
 #connectCameraBtn:hover {
   background: #163d6b;
 }
+
+/* MODE SELECTION */
+.mode-section {
+  margin: 20px auto;
+  padding: 15px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.mode-section h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.mode-options {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.mode-option {
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mode-option input[type="radio"] {
+  accent-color: #007bff; /* modern blue */
+}
+
 /*
 footer {
   margin-top: 25px;
@@ -126,6 +161,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 
