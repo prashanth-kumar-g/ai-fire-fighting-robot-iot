@@ -36,8 +36,8 @@ function setMode(mode) {
   currentMode = mode;
   console.log("Mode selected:", mode);
 
-  // OPTIONAL (for later backend integration)
-  // sendCommand({ mode: mode });
+  // SEND mode to backend
+  sendCommand({ mode: mode });
 }
 
 // ---------- Button Actions (CAR) ----------
@@ -113,4 +113,5 @@ function tiltDown() {
 
 // Poll status every 1 second
 // setInterval(updateStatus, 1000)
+
 
