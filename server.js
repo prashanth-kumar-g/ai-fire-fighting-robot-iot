@@ -62,7 +62,6 @@ app.get("/api/command", (req, res) => {
   // One-shot resets
   commandState.pan  = "none";
   commandState.tilt = "none";
-  commandState.move = "stop";
   // DO NOT reset mode(toggle-based)
   // DO NOT reset pump(toggle-based)
 
@@ -96,3 +95,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ AIoT Backend running on port ${PORT}`);
 });
+
